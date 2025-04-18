@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DWWeatherTracker"
+  DTS:DTSID="{85766168-02F1-49A0-A99B-0434FE175F3A}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=ubuntu,2022;User ID=sa;Initial Catalog=DWWeatherTracker;Provider=SQLNCLI11.1;Persist Security Info=True;Application Name=SSIS-Session01-{85766168-02F1-49A0-A99B-0434FE175F3A}ubuntu,2022.DWWeatherTracker.sa;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAyGPSWrGoLUW1k1YWXQhHPwAAAAACAAAAAAAQZgAAAAEAACAAAAAiD6TXD3sd00i0JXSA2b6h9fjNo/elqtr4We1Wvhq3gwAAAAAOgAAAAAIAACAAAAD1LwTMh1PgKuUSwHLqoU6L0KCB18HiV2pidgRjmlFM6oAAAABLBCd8q746rn6LIWKBkuflh4bCg3ntsSkd2cVmY+uews4IfB6eHMdmL0FK1hBJQoOr/2T6nWdE/aqQcdhwlP2vV+t3ArDzhVmwQClBFMD+mzlWsbis9CBIU6I7Uo3+/QkjmFaI7XQHG+pP7unRtDy08cbcE+VFYnumjnLH63En80AAAAAi7BWKIMfTrm2qnZrnwm0cwgxwWRC9G0vsZYEYnAVmV6JCI0Oob/ENrs5P1RsT2I7psrtco0CYQVLZBxgkE1X0</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

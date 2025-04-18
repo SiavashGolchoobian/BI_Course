@@ -1,0 +1,33 @@
+Required Softwares:
+--------------------
+
+AdventureWorks OLTP Database:
+	https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2022.bak
+	
+AdventureWorks Data Warehouse Database:
+	https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksDW2022.bak
+	
+SQL Server Management Studio:
+	https://aka.ms/ssmsfullsetup
+	
+SQL Server Engine:
+	https://dl2.soft98.ir/programing/Microsoft.SQL.Server.2022.Enterprise.x64.rar?1743930656
+	
+Visual Studio 2022:
+	https://edge04.82.ir.cdn.ir/programing/Microsoft.Visual.Studio.2022.v17.13.5.html
+	
+SSIS Extension for VS2022:
+	https://marketplace.visualstudio.com/_apis/public/gallery/publishers/SSIS/vsextensions/MicrosoftDataToolsIntegrationServices/1.5/vspackage
+	
+SSAS Extension for VS2022:
+	https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects2022
+	
+SSRS Extension for VS2022:
+	https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftReportProjectsforVisualStudio2022
+	
+SSIS MultipleHash:
+	https://github.com/keif888/SSISMHash/releases/download/v1.7.6.0/MultipleHashInstallerx32.msi
+	https://github.com/keif888/SSISMHash/releases/download/v1.7.6.0/MultipleHashInstallerx64.msi
+	
+Microsft Excel
+	
