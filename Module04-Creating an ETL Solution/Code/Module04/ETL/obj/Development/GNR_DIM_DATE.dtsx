@@ -1,0 +1,432 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/29/2025 4:05:50 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SIAVASH-LAPTOP"
+  DTS:CreatorName="SIAVASH-LAPTOP\Siavash"
+  DTS:DTSID="{C1FF38A1-FA2D-404F-95D4-B6611F2C8D56}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="GNR_DIM_DATE"
+  DTS:PackageType="5"
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{F87181E6-ADF7-4E07-9622-1E5BBCEF088A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQC-INITIALIZE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{BF2EC1F5-ABC9-40F2-A82F-A6EBABE785C7}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC-INITIALIZE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC-INITIALIZE\FST-CreateCacheFolder"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="Create cache folder"
+          DTS:DTSID="{3A426864-B3E0-4E50-A770-69DF7B5BE7C4}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FST-CreateCacheFolder"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="CreateDirectory"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="$Project::CachePath"
+              TaskIsSourceVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQC-LOAD"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{99BC30E1-B9A8-4591-A4F8-06D998A97599}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC-LOAD">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC-LOAD\DFT-CacheDate"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{7CEC9A1C-AF43-48EB-81D5-6D13010821B8}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT-CacheDate"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC-LOAD\DFT-CacheDate\CH-DIM_Date"
+                  componentClassID="Microsoft.Cache"
+                  contactInfo="Cache Transform;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Writes data to a cache (a .caw file) with the Cache Connection Manager. Reuse the cache between multiple Lookup transforms to reduce database load. Share the cache to reduce memory usage. Note: cache data is stored in clear text and not recommended for sensitive data."
+                  name="CH-DIM_Date"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC-LOAD\DFT-CacheDate\CH-DIM_Date.Connections[CacheConnection]"
+                      connectionManagerID="{1C47B5FE-5E4C-4900-A0C8-A33314CF090C}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cache_GNR_DIM_Dates]"
+                      description="The connection used to access the cache."
+                      name="CacheConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC-LOAD\DFT-CacheDate\CH-DIM_Date.Inputs[Cache Input]"
+                      hasSideEffects="true"
+                      name="Cache Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC-LOAD\DFT-CacheDate\CH-DIM_Date.Inputs[Cache Input].Columns[GregorianDateKey]"
+                          cachedDataType="i4"
+                          cachedName="GregorianDateKey"
+                          lineageId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Output].Columns[GregorianDateKey]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="The cache column associated with the input column."
+                              name="CacheColumnName">GregorianDateKey</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC-LOAD\DFT-CacheDate\CH-DIM_Date.Inputs[Cache Input].Columns[GregorianDate]"
+                          cachedDataType="dbDate"
+                          cachedName="GregorianDate"
+                          lineageId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Output].Columns[GregorianDate]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="The cache column associated with the input column."
+                              name="CacheColumnName">GregorianDate</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQC-LOAD\DFT-CacheDate\CH-DIM_Date.Inputs[Cache Input].Columns[JalaliDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="JalaliDate"
+                          lineageId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Output].Columns[JalaliDate]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="The cache column associated with the input column."
+                              name="CacheColumnName">JalaliDate</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC-LOAD\DFT-CacheDate\CH-DIM_Date.Outputs[Cache Output]"
+                      name="Cache Output"
+                      synchronousInputId="Package\SEQC-LOAD\DFT-CacheDate\CH-DIM_Date.Inputs[Cache Input]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE_SRC-GNR_DIM_Date"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+	[GregorianDateKey],
+	[GregorianDate],
+	[JalaliDate]
+FROM 
+	[GNR].[DIM_Date]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Connections[OleDbConnection]"
+                      connectionManagerID="{46A55289-70E1-4B48-93DF-30D1DADDD16A}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_DWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Output].Columns[GregorianDateKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Output].ExternalColumns[GregorianDateKey]"
+                          lineageId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Output].Columns[GregorianDateKey]"
+                          name="GregorianDateKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Output].Columns[GregorianDate]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Output].ExternalColumns[GregorianDate]"
+                          lineageId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Output].Columns[GregorianDate]"
+                          name="GregorianDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Output].Columns[JalaliDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Output].ExternalColumns[JalaliDate]"
+                          length="10"
+                          lineageId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Output].Columns[JalaliDate]"
+                          name="JalaliDate"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Output].ExternalColumns[GregorianDateKey]"
+                          dataType="i4"
+                          name="GregorianDateKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Output].ExternalColumns[GregorianDate]"
+                          dataType="dbDate"
+                          name="GregorianDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Output].ExternalColumns[JalaliDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="JalaliDate" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Error Output].Columns[GregorianDateKey]"
+                          dataType="i4"
+                          lineageId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Error Output].Columns[GregorianDateKey]"
+                          name="GregorianDateKey" />
+                        <outputColumn
+                          refId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Error Output].Columns[GregorianDate]"
+                          dataType="dbDate"
+                          lineageId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Error Output].Columns[GregorianDate]"
+                          name="GregorianDate" />
+                        <outputColumn
+                          refId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Error Output].Columns[JalaliDate]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Error Output].Columns[JalaliDate]"
+                          name="JalaliDate" />
+                        <outputColumn
+                          refId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC-LOAD\DFT-CacheDate.Paths[OLE DB Source Output]"
+                  endId="Package\SEQC-LOAD\DFT-CacheDate\CH-DIM_Date.Inputs[Cache Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{2010FDC7-ADD8-4D60-9D82-59C91DEA0B2B}"
+      DTS:From="Package\SEQC-INITIALIZE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SEQC-LOAD" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="189,42"
+          Id="Package\SEQC-INITIALIZE\FST-CreateCacheFolder"
+          TopLeft="93,26" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="367,123"
+          Size="367,166"
+          Id="Package\SEQC-INITIALIZE"
+          TopLeft="261,70" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\SEQC-LOAD\DFT-CacheDate"
+          TopLeft="93,28" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="356,123"
+          Size="356,166"
+          Id="Package\SEQC-LOAD"
+          TopLeft="269,287" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="445.75,236">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQC-LOAD\DFT-CacheDate">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="200,42"
+          Id="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date"
+          TopLeft="399.5,83.5" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\SEQC-LOAD\DFT-CacheDate\CH-DIM_Date"
+          TopLeft="399.5,185.5" />
+        <EdgeLayout
+          Id="Package\SEQC-LOAD\DFT-CacheDate.Paths[OLE DB Source Output]"
+          TopLeft="499.5,125.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC-LOAD\DFT-CacheDate\OLE_SRC-GNR_DIM_Date">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
