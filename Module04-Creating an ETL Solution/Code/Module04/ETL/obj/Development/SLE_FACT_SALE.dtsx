@@ -11,46 +11,24 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SLE_FACT_SALE"
   DTS:PackageType="5"
-  DTS:VersionBuild="156"
-  DTS:VersionGUID="{4088DF5F-979E-4EA8-9422-ED91041F42B2}">
+  DTS:VersionBuild="161"
+  DTS:VersionGUID="{A8474075-BD21-41AC-89ED-3225A1E31B8B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[BI_STG]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{7908B4A3-5D54-4BC1-82C0-48A248E092D2}"
-      DTS:ObjectName="BI_STG">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=ubuntu,2019;User ID=sa;Initial Catalog=DEV_STG_CLASS;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-SLE_DIM_PRODUCT-{7908B4A3-5D54-4BC1-82C0-48A248E092D2}ubuntu,2019.DEV_STG_CLASS.sa;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAyGPSWrGoLUW1k1YWXQhHPwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADJd7J1rar8HNBWFwtXT2K5aaoHyqrjgLH/2rvhc2l6jAAAAAAOgAAAAAIAACAAAADsNRcMCTzLNf2kqFm3Pu1aCRxHSSwDSbjTymbcXas57SAAAAAksD4I+xVsqW2cfP223zj6sC+Qj5+9BYhNicrlyg1a10AAAAC6S1Z6hBPmKszszvNBMpFf9jJeyPW2qqUyKZxVChMI1pi1pIH4puWJ03QyNQse6BpKU1+dNFl25BFdLU9hFjuM</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[OLTP_AdventureWorks]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{7EEB309C-6101-494F-A7C9-6107FA0E9AA7}"
-      DTS:ObjectName="OLTP_AdventureWorks">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=ubuntu,2019;User ID=sa;Initial Catalog=AdventureWorks2019;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=ETL;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAyGPSWrGoLUW1k1YWXQhHPwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB1h9vpApV+me3C6IukaALj+khzGxOi4LVZdet0C0mY/wAAAAAOgAAAAAIAACAAAACqaRcqitLh0k9bx10xVarnLq9G7P1XOMBAb78tyM7M7CAAAACwa7voVmAZB7T/pBvOOvSkzh5LugRkwq3Mph3i/cAgmEAAAADf0pzM2rcg+t3UmJoi/sJnRbijlTpra2RCM281TgMZBcwJ5U8qifBpd/EI5nQR5PbAoxoNxjYuv7mTNbfn5axe</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:Description="FE-FL | FE-IL | IE-IL"
+      DTS:DTSID="{1B62DEC7-D953-40B8-9BB2-1DFFFF02A2C8}"
+      DTS:ObjectName="LoadModel"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue"
+        xml:space="preserve"></DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
@@ -158,8 +136,8 @@
                   <connections>
                     <connection
                       refId="Package\SEQC-EXTRACT\DFT-Extract_Sale\OLE_DST-Extract_SLE_FACT_Sale01_Header.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[BI_STG]"
-                      connectionManagerRefId="Package.ConnectionManagers[BI_STG]"
+                      connectionManagerID="{7908B4A3-5D54-4BC1-82C0-48A248E092D2}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_STG]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -359,8 +337,8 @@
                   <connections>
                     <connection
                       refId="Package\SEQC-EXTRACT\DFT-Extract_Sale\OLE_DST-Extract_SLE_FACT_Sale02_Detail.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[BI_STG]"
-                      connectionManagerRefId="Package.ConnectionManagers[BI_STG]"
+                      connectionManagerID="{7908B4A3-5D54-4BC1-82C0-48A248E092D2}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_STG]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -571,8 +549,8 @@ FROM
                   <connections>
                     <connection
                       refId="Package\SEQC-EXTRACT\DFT-Extract_Sale\OLE_SRC-Extract_SaleOrderDeatil.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[OLTP_AdventureWorks]"
-                      connectionManagerRefId="Package.ConnectionManagers[OLTP_AdventureWorks]"
+                      connectionManagerID="{7EEB309C-6101-494F-A7C9-6107FA0E9AA7}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[OLTP_AdventureWorks]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -866,8 +844,8 @@ FROM
                   <connections>
                     <connection
                       refId="Package\SEQC-EXTRACT\DFT-Extract_Sale\OLE_SRC-Extract_SaleOrderHeader.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[OLTP_AdventureWorks]"
-                      connectionManagerRefId="Package.ConnectionManagers[OLTP_AdventureWorks]"
+                      connectionManagerID="{7EEB309C-6101-494F-A7C9-6107FA0E9AA7}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[OLTP_AdventureWorks]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1170,6 +1148,56 @@ VALUES ('SLE_FACT_SALE','ERR','Error Occured on truncation.');</DTS:VariableValu
               SQLTask:Connection="{46A55289-70E1-4B48-93DF-30D1DADDD16A}"
               SQLTask:SqlStmtSourceType="Variable"
               SQLTask:SqlStatementSource="User::varStatement" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC-EXTRACT\SQL-Truncate_DWH"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{03135158-3078-4c7c-bfde-2f9f233cc25d}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL-Truncate_DWH"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{cd504c6a-dca4-4e3e-8dce-2cbf688b2f41}"
+              DTS:EvaluateAsExpression="True"
+              DTS:Expression="&quot;TRUNCATE TABLE [&quot; + @[User::varStgSchema] + &quot;].[&quot; + @[User::varStgTable] + &quot;];&quot;"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="varStatement">
+              <DTS:VariableValue
+                DTS:DataType="8">TRUNCATE TABLE [Extract].[SLE_DIM_Product01];</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{4634db29-5cc1-47d9-ab64-cfe5436b9271}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="varStgSchema">
+              <DTS:VariableValue
+                DTS:DataType="8">Extract</DTS:VariableValue>
+            </DTS:Variable>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{341451ab-51a9-4d60-ab7a-e30e702ad2dd}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="varStgTable">
+              <DTS:VariableValue
+                DTS:DataType="8">SLE_DIM_Product01</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:PropertyExpression
+            DTS:Name="Disable">RIGHT(@[$Package::LoadModel],2)=="FL" ? False : True</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{46A55289-70E1-4B48-93DF-30D1DADDD16A}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE [SLE].[FACT_Sales];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -2110,8 +2138,8 @@ FROM
                   <connections>
                     <connection
                       refId="Package\SEQC-LOAD\DFT-Load\OLE_SRC-STG_Transform.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[BI_STG]"
-                      connectionManagerRefId="Package.ConnectionManagers[BI_STG]"
+                      connectionManagerID="{7908B4A3-5D54-4BC1-82C0-48A248E092D2}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_STG]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -5092,8 +5120,8 @@ where [refTable].[GregorianDate] = ?</property>
                   <connections>
                     <connection
                       refId="Package\SEQC-TRANSFORM\DFT-TransformData01\OLE_DST-Transform_SLE_FACT_Sale01_Combine.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[BI_STG]"
-                      connectionManagerRefId="Package.ConnectionManagers[BI_STG]"
+                      connectionManagerID="{7908B4A3-5D54-4BC1-82C0-48A248E092D2}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_STG]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -5359,8 +5387,8 @@ FROM
                   <connections>
                     <connection
                       refId="Package\SEQC-TRANSFORM\DFT-TransformData01\OLE_SRC-STG_SLE_FACT_Sale.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[BI_STG]"
-                      connectionManagerRefId="Package.ConnectionManagers[BI_STG]"
+                      connectionManagerID="{7908B4A3-5D54-4BC1-82C0-48A248E092D2}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_STG]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -6386,8 +6414,8 @@ FROM
                   <connections>
                     <connection
                       refId="Package\SEQC-TRANSFORM\DFT-TransformData02\OLE_DST-Transform_SLE_FACT_Sale02_Action.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[BI_STG]"
-                      connectionManagerRefId="Package.ConnectionManagers[BI_STG]"
+                      connectionManagerID="{7908B4A3-5D54-4BC1-82C0-48A248E092D2}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_STG]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -6700,8 +6728,8 @@ ORDER BY
                   <connections>
                     <connection
                       refId="Package\SEQC-TRANSFORM\DFT-TransformData02\OLE_SRC-STG_SLE_FACT_Sale.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[BI_STG]"
-                      connectionManagerRefId="Package.ConnectionManagers[BI_STG]"
+                      connectionManagerID="{7908B4A3-5D54-4BC1-82C0-48A248E092D2}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BI_STG]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -6908,43 +6936,47 @@ ORDER BY
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="176,42"
+          Size="176,41.6"
           Id="Package\SEQC-EXTRACT\DFT-Extract_Sale"
           TopLeft="31.3714291218593,94.8235293286482" />
         <NodeLayout
-          Size="176,42"
+          Size="176,41.6"
           Id="Package\SEQC-EXTRACT\SQL-Error"
           TopLeft="226.371429536963,96.6588233899905" />
         <NodeLayout
-          Size="176,42"
+          Size="176,41.6"
+          Id="Package\SEQC-EXTRACT\SQL-Truncate_DWH"
+          TopLeft="222.085715242126,8.72941171778527" />
+        <NodeLayout
+          Size="176,41.6"
           Id="Package\SEQC-EXTRACT\SQL-Truncate_STG"
-          TopLeft="121.371429313446,7.95294111480345" />
+          TopLeft="31.3714291218596,8.71764699648608" />
         <EdgeLayout
           Id="Package\SEQC-EXTRACT.PrecedenceConstraints[Constraint]"
-          TopLeft="181.371429313446,49.5529411148035">
+          TopLeft="91.3714291218596,50.3176469964861">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-62.0000001915862,45.2705882138448"
+              EndConnector="27.9999999999997,44.5058823321621"
               Start="0,0"
-              End="-62.0000001915862,37.7705882138448">
+              End="27.9999999999997,37.0058823321621">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,14.3529411677749" />
+                    End="0,14.0429252697955" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,14.3529411677749"
-                    Point2="0,18.3529411677749"
-                    Point3="-4,18.3529411677749" />
+                    Point1="0,14.0429252697955"
+                    Point2="0,18.0429252697955"
+                    Point3="4,18.0429252697955" />
                   <mssgle:LineSegment
-                    End="-58.0000001915862,18.3529411677749" />
+                    End="23.9999999999997,18.0429252697955" />
                   <mssgle:CubicBezierSegment
-                    Point1="-58.0000001915862,18.3529411677749"
-                    Point2="-62.0000001915862,18.3529411677749"
-                    Point3="-62.0000001915862,22.3529411677749" />
+                    Point1="23.9999999999997,18.0429252697955"
+                    Point2="27.9999999999997,18.0429252697955"
+                    Point3="27.9999999999997,22.0429252697955" />
                   <mssgle:LineSegment
-                    End="-62.0000001915862,37.7705882138448" />
+                    End="27.9999999999997,37.0058823321621" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6955,64 +6987,64 @@ ORDER BY
         </EdgeLayout>
         <EdgeLayout
           Id="Package\SEQC-EXTRACT.PrecedenceConstraints[Constraint 1]"
-          TopLeft="237.371429313446,49.5529411148035">
+          TopLeft="147.37142912186,50.3176469964861">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="77.0000002235175,47.1058822751871"
+              EndConnector="167.000000415103,46.3411763935044"
               Start="0,0"
-              End="77.0000002235175,39.6058822751871">
+              End="167.000000415103,38.8411763935044">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.0969793007515" />
+                    End="0,14.7869634027721" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,15.0969793007515"
-                    Point2="0,19.0969793007515"
-                    Point3="4,19.0969793007515" />
+                    Point1="0,14.7869634027721"
+                    Point2="0,18.7869634027721"
+                    Point3="4,18.7869634027721" />
                   <mssgle:LineSegment
-                    End="73.0000002235175,19.0969793007515" />
+                    End="163.000000415103,18.7869634027721" />
                   <mssgle:CubicBezierSegment
-                    Point1="73.0000002235175,19.0969793007515"
-                    Point2="77.0000002235175,19.0969793007515"
-                    Point3="77.0000002235175,23.0969793007515" />
+                    Point1="163.000000415103,18.7869634027721"
+                    Point2="167.000000415103,18.7869634027721"
+                    Point3="167.000000415103,22.7869634027721" />
                   <mssgle:LineSegment
-                    End="77.0000002235175,39.6058822751871" />
+                    End="167.000000415103,38.8411763935044" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="23.2586524555088,24.0969793007515,30.4826953125,9.7490234375"
+              BoundingBox="68.2586525513017,23.7869634027721,30.4826953125,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="426,191"
-          Size="426,234"
+          PanelSize="425.6,191.2"
+          Size="425.6,234.4"
           Id="Package\SEQC-EXTRACT"
           TopLeft="227.142857626385,19.1176470420661" />
         <NodeLayout
-          Size="124,42"
+          Size="124,41.6"
           Id="Package\SEQC-LOAD\DFT-Load"
           TopLeft="154.003175400606,25.6261433946311" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="426,123"
-          Size="426,166"
+          PanelSize="425.6,123.2"
+          Size="425.6,166.4"
           Id="Package\SEQC-LOAD"
           TopLeft="229.285714773804,655.258823333015" />
         <NodeLayout
-          Size="184,42"
+          Size="184,41.6"
           Id="Package\SEQC-TRANSFORM\DFT-TransformData01"
           TopLeft="124.787013759717,65.668449001648" />
         <NodeLayout
-          Size="184,42"
+          Size="184,41.6"
           Id="Package\SEQC-TRANSFORM\DFT-TransformData02"
           TopLeft="126,150" />
         <EdgeLayout
@@ -7040,24 +7072,24 @@ ORDER BY
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="426,246"
-          Size="426,289"
+          PanelSize="425.6,246.4"
+          Size="425.6,288.8"
           Id="Package\SEQC-TRANSFORM"
           TopLeft="227.142857626385,293.105882297977" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="440.142857626385,253.117647042066">
+          TopLeft="439.942857626385,253.517647042066">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39.9882352559109"
+              EndConnector="0,39.5882352559109"
               Start="0,0"
-              End="0,32.4882352559109">
+              End="0,32.0882352559109">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.4882352559109" />
+                    End="0,32.0882352559109" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7095,7 +7127,15 @@ ORDER BY
     design-time-name="Package\SEQC-EXTRACT\DFT-Extract_Sale">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="284,42"
+          Id="Package\SEQC-EXTRACT\DFT-Extract_Sale\OLE_SRC-Extract_SaleOrderDeatil"
+          TopLeft="479,69" />
+        <NodeLayout
+          Size="284,42"
+          Id="Package\SEQC-EXTRACT\DFT-Extract_Sale\OLE_DST-Extract_SLE_FACT_Sale02_Detail"
+          TopLeft="486,202.9999997721" />
         <NodeLayout
           Size="284,42"
           Id="Package\SEQC-EXTRACT\DFT-Extract_Sale\OLE_DST-Extract_SLE_FACT_Sale01_Header"
@@ -7104,36 +7144,6 @@ ORDER BY
           Size="284,42"
           Id="Package\SEQC-EXTRACT\DFT-Extract_Sale\OLE_SRC-Extract_SaleOrderHeader"
           TopLeft="76.285715029252,66.8235293628332" />
-        <EdgeLayout
-          Id="Package\SEQC-EXTRACT\DFT-Extract_Sale.Paths[OLE DB Source Output]"
-          TopLeft="218.285715029252,108.823529362833">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,94.1764704092668"
-              Start="0,0"
-              End="0,86.6764704092668">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,86.6764704092668" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="284,42"
-          Id="Package\SEQC-EXTRACT\DFT-Extract_Sale\OLE_DST-Extract_SLE_FACT_Sale02_Detail"
-          TopLeft="486,202.9999997721" />
-        <NodeLayout
-          Size="284,42"
-          Id="Package\SEQC-EXTRACT\DFT-Extract_Sale\OLE_SRC-Extract_SaleOrderDeatil"
-          TopLeft="479,69" />
         <EdgeLayout
           Id="Package\SEQC-EXTRACT\DFT-Extract_Sale.Paths[OLE DB Source Output1]"
           TopLeft="624.5,111">
@@ -7153,12 +7163,59 @@ ORDER BY
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC-EXTRACT\DFT-Extract_Sale.Paths[OLE DB Source Output]"
+          TopLeft="218.285715029252,108.823529362833">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,94.1764704092668"
+              Start="0,0"
+              End="0,86.6764704092668">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,86.6764704092668" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC-EXTRACT\DFT-Extract_Sale\OLE_SRC-Extract_SaleOrderDeatil">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC-EXTRACT\DFT-Extract_Sale\OLE_DST-Extract_SLE_FACT_Sale02_Detail">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\SEQC-EXTRACT\DFT-Extract_Sale\OLE_DST-Extract_SLE_FACT_Sale01_Header">
     <Properties>
@@ -7186,6 +7243,10 @@ ORDER BY
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="200,42"
+          Id="Package\SEQC-LOAD\DFT-Load\OLE_SRC-STG_Transform"
+          TopLeft="473.99999293685,20.8333330228925" />
+        <NodeLayout
           Size="184,42"
           Id="Package\SEQC-LOAD\DFT-Load\DER-DateTime"
           TopLeft="486.666659414768,111.666665002704" />
@@ -7201,32 +7262,6 @@ ORDER BY
           Size="171,42"
           Id="Package\SEQC-LOAD\DFT-Load\CSPL-Action"
           TopLeft="497.499992586672,200.833330340683" />
-        <NodeLayout
-          Size="200,42"
-          Id="Package\SEQC-LOAD\DFT-Load\OLE_SRC-STG_Transform"
-          TopLeft="473.99999293685,20.8333330228925" />
-        <EdgeLayout
-          Id="Package\SEQC-LOAD\DFT-Load.Paths[Derived Column Output]"
-          TopLeft="580.83332600072,153.666665002704">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,47.166665337979"
-              Start="0,0"
-              End="0,39.666665337979">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.666665337979" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\SEQC-LOAD\DFT-Load.Paths[Update]"
           TopLeft="610.166659253339,242.833330340683">
@@ -7282,7 +7317,9 @@ ORDER BY
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7321,6 +7358,30 @@ ORDER BY
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC-LOAD\DFT-Load.Paths[Derived Column Output]"
+          TopLeft="580.83332600072,153.666665002704">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.166665337979"
+              Start="0,0"
+              End="0,39.666665337979">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.666665337979" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -7352,328 +7413,60 @@ ORDER BY
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="276,42"
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData01\OLE_DST-Transform_SLE_FACT_Sale01_Combine"
-          TopLeft="264.444439825084,988.944436286059" />
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData01\ALL-ShipDate"
+          TopLeft="264.444439825084,617.886661771636" />
+        <NodeLayout
+          Size="276,42"
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData01\ALL-Product"
+          TopLeft="264.444439825084,246.828887257212" />
+        <NodeLayout
+          Size="276,42"
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData01\DER-NullProductRef"
+          TopLeft="642,154.064443628606" />
+        <NodeLayout
+          Size="276,42"
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData01\DCNV-HashValue"
+          TopLeft="264.444439825084,896.179992657453" />
+        <NodeLayout
+          Size="276,42"
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData01\LKP-ShipDate"
+          TopLeft="264.444439825084,525.12221814303" />
+        <NodeLayout
+          Size="276,42"
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData01\DER-NullOrderDate"
+          TopLeft="642,339.593330885818" />
         <NodeLayout
           Size="276,42"
           Id="Package\SEQC-TRANSFORM\DFT-TransformData01\MLH-Row"
           TopLeft="264.444439825084,803.415549028848" />
         <NodeLayout
           Size="276,42"
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData01\LKP-OrderDate"
+          TopLeft="264.444439825084,339.593330885818" />
+        <NodeLayout
+          Size="276,42"
           Id="Package\SEQC-TRANSFORM\DFT-TransformData01\OLE_SRC-STG_SLE_FACT_Sale"
           TopLeft="264.444439825084,61.3" />
         <NodeLayout
           Size="276,42"
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData01\DCNV-HashValue"
-          TopLeft="264.444439825084,896.179992657453" />
-        <EdgeLayout
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Data Conversion Output]"
-          TopLeft="402.444439825084,938.179992657453">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,50.7644436286059"
-              Start="0,0"
-              End="0,43.2644436286059">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.2644436286059" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData01\DER-NullShipDate"
+          TopLeft="642,525.12221814303" />
+        <NodeLayout
+          Size="276,42"
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData01\DER-CalDiscount"
+          TopLeft="264.444439825084,710.651105400242" />
         <NodeLayout
           Size="276,42"
           Id="Package\SEQC-TRANSFORM\DFT-TransformData01\LKP-ProductRef"
           TopLeft="264.444439825084,154.064443628606" />
-        <EdgeLayout
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[OLE DB Source Output]"
-          TopLeft="402.444439825084,103.3">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,50.7644436286059"
-              Start="0,0"
-              End="0,43.2644436286059">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.2644436286059" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="276,42"
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData01\DER-NullProductRef"
-          TopLeft="642,154.064443628606" />
-        <EdgeLayout
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Lookup No Match Output]"
-          TopLeft="540.444439825084,175.064443628606">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="101.555560174916,0"
-              Start="0,0"
-              End="94.0555601749156,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="94.0555601749156,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8.77860663129218,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="276,42"
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData01\ALL-Product"
-          TopLeft="264.444439825084,246.828887257212" />
-        <EdgeLayout
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Lookup Match Output]"
-          TopLeft="402.444439825084,196.064443628606">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-44.6666666666667,50.7644436286059"
-              Start="0,0"
-              End="-44.6666666666667,43.2644436286059">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.2831119052491" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.2831119052491"
-                    Point2="0,30.2831119052491"
-                    Point3="-4,30.2831119052491" />
-                  <mssgle:LineSegment
-                    End="-40.6666666666667,30.2831119052491" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-40.6666666666667,30.2831119052491"
-                    Point2="-44.6666666666667,30.2831119052491"
-                    Point3="-44.6666666666667,34.2831119052491" />
-                  <mssgle:LineSegment
-                    End="-44.6666666666667,43.2644436286059" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-70.5247200520834,35.2831119052491,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Derived Column Output]"
-          TopLeft="780,196.064443628606">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-332.888893508249,50.7644436286059"
-              Start="0,0"
-              End="-332.888893508249,43.2644436286059">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.2831119052491" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.2831119052491"
-                    Point2="0,30.2831119052491"
-                    Point3="-4,30.2831119052491" />
-                  <mssgle:LineSegment
-                    End="-328.888893508249,30.2831119052491" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-328.888893508249,30.2831119052491"
-                    Point2="-332.888893508249,30.2831119052491"
-                    Point3="-332.888893508249,34.2831119052491" />
-                  <mssgle:LineSegment
-                    End="-332.888893508249,43.2644436286059" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="276,42"
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData01\LKP-OrderDate"
-          TopLeft="264.444439825084,339.593330885818" />
-        <EdgeLayout
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Union All Output 1]"
-          TopLeft="402.444439825084,288.828887257212">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,50.7644436286059"
-              Start="0,0"
-              End="0,43.2644436286059">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.2644436286059" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="276,42"
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData01\DER-NullOrderDate"
-          TopLeft="642,339.593330885818" />
-        <EdgeLayout
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Lookup No Match Output1]"
-          TopLeft="540.444439825084,360.593330885818">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="101.555560174916,0"
-              Start="0,0"
-              End="94.0555601749156,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="94.0555601749156,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8.77860663129218,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="276,42"
           Id="Package\SEQC-TRANSFORM\DFT-TransformData01\ALL-OrderDate"
           TopLeft="264.444439825084,432.357774514424" />
-        <EdgeLayout
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Lookup Match Output1]"
-          TopLeft="402.444439825084,381.593330885818">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-44.6666666666667,50.7644436286059"
-              Start="0,0"
-              End="-44.6666666666667,43.2644436286059">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.2831119052491" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.2831119052491"
-                    Point2="0,30.2831119052491"
-                    Point3="-4,30.2831119052491" />
-                  <mssgle:LineSegment
-                    End="-40.6666666666667,30.2831119052491" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-40.6666666666667,30.2831119052491"
-                    Point2="-44.6666666666667,30.2831119052491"
-                    Point3="-44.6666666666667,34.2831119052491" />
-                  <mssgle:LineSegment
-                    End="-44.6666666666667,43.2644436286059" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-70.5247200520834,35.2831119052491,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Derived Column Output1]"
-          TopLeft="780,381.593330885818">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-332.888893508249,50.7644436286059"
-              Start="0,0"
-              End="-332.888893508249,43.2644436286059">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.2831119052491" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.2831119052491"
-                    Point2="0,30.2831119052491"
-                    Point3="-4,30.2831119052491" />
-                  <mssgle:LineSegment
-                    End="-328.888893508249,30.2831119052491" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-328.888893508249,30.2831119052491"
-                    Point2="-332.888893508249,30.2831119052491"
-                    Point3="-332.888893508249,34.2831119052491" />
-                  <mssgle:LineSegment
-                    End="-332.888893508249,43.2644436286059" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="276,42"
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData01\LKP-ShipDate"
-          TopLeft="264.444439825084,525.12221814303" />
-        <EdgeLayout
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Union All Output 11]"
-          TopLeft="402.444439825084,474.357774514424">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,50.764443628606"
-              Start="0,0"
-              End="0,43.264443628606">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.264443628606" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="276,42"
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData01\DER-NullShipDate"
-          TopLeft="642,525.12221814303" />
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData01\OLE_DST-Transform_SLE_FACT_Sale01_Combine"
+          TopLeft="264.444439825084,988.944436286059" />
         <EdgeLayout
           Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Lookup No Match Output2]"
           TopLeft="540.444439825084,546.12221814303">
@@ -7698,10 +7491,54 @@ ORDER BY
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="276,42"
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData01\ALL-ShipDate"
-          TopLeft="264.444439825084,617.886661771636" />
+        <EdgeLayout
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Lookup No Match Output1]"
+          TopLeft="540.444439825084,360.593330885818">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="101.555560174916,0"
+              Start="0,0"
+              End="94.0555601749156,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="94.0555601749156,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8.77860663129218,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Lookup No Match Output]"
+          TopLeft="540.444439825084,175.064443628606">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="101.555560174916,0"
+              Start="0,0"
+              End="94.0555601749156,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="94.0555601749156,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8.77860663129218,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Lookup Match Output2]"
           TopLeft="402.444439825084,567.12221814303">
@@ -7739,6 +7576,126 @@ ORDER BY
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Lookup Match Output1]"
+          TopLeft="402.444439825084,381.593330885818">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-44.6666666666667,50.7644436286059"
+              Start="0,0"
+              End="-44.6666666666667,43.2644436286059">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.2831119052491" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.2831119052491"
+                    Point2="0,30.2831119052491"
+                    Point3="-4,30.2831119052491" />
+                  <mssgle:LineSegment
+                    End="-40.6666666666667,30.2831119052491" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-40.6666666666667,30.2831119052491"
+                    Point2="-44.6666666666667,30.2831119052491"
+                    Point3="-44.6666666666667,34.2831119052491" />
+                  <mssgle:LineSegment
+                    End="-44.6666666666667,43.2644436286059" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-70.5247200520834,35.2831119052491,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Lookup Match Output]"
+          TopLeft="402.444439825084,196.064443628606">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-44.6666666666667,50.7644436286059"
+              Start="0,0"
+              End="-44.6666666666667,43.2644436286059">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.2831119052491" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.2831119052491"
+                    Point2="0,30.2831119052491"
+                    Point3="-4,30.2831119052491" />
+                  <mssgle:LineSegment
+                    End="-40.6666666666667,30.2831119052491" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-40.6666666666667,30.2831119052491"
+                    Point2="-44.6666666666667,30.2831119052491"
+                    Point3="-44.6666666666667,34.2831119052491" />
+                  <mssgle:LineSegment
+                    End="-44.6666666666667,43.2644436286059" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-70.5247200520834,35.2831119052491,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[HashedOutput]"
+          TopLeft="402.444439825084,845.415549028848">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.7644436286059"
+              Start="0,0"
+              End="0,43.2644436286059">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.2644436286059" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Derived Column Output3]"
+          TopLeft="402.444439825084,752.651105400242">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.7644436286059"
+              Start="0,0"
+              End="0,43.2644436286059">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.2644436286059" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Derived Column Output2]"
           TopLeft="780,567.12221814303">
           <EdgeLayout.Curve>
@@ -7769,13 +7726,107 @@ ORDER BY
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="276,42"
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData01\DER-CalDiscount"
-          TopLeft="264.444439825084,710.651105400242" />
+        <EdgeLayout
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Derived Column Output1]"
+          TopLeft="780,381.593330885818">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-332.888893508249,50.7644436286059"
+              Start="0,0"
+              End="-332.888893508249,43.2644436286059">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.2831119052491" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.2831119052491"
+                    Point2="0,30.2831119052491"
+                    Point3="-4,30.2831119052491" />
+                  <mssgle:LineSegment
+                    End="-328.888893508249,30.2831119052491" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-328.888893508249,30.2831119052491"
+                    Point2="-332.888893508249,30.2831119052491"
+                    Point3="-332.888893508249,34.2831119052491" />
+                  <mssgle:LineSegment
+                    End="-332.888893508249,43.2644436286059" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Derived Column Output]"
+          TopLeft="780,196.064443628606">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-332.888893508249,50.7644436286059"
+              Start="0,0"
+              End="-332.888893508249,43.2644436286059">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.2831119052491" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.2831119052491"
+                    Point2="0,30.2831119052491"
+                    Point3="-4,30.2831119052491" />
+                  <mssgle:LineSegment
+                    End="-328.888893508249,30.2831119052491" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-328.888893508249,30.2831119052491"
+                    Point2="-332.888893508249,30.2831119052491"
+                    Point3="-332.888893508249,34.2831119052491" />
+                  <mssgle:LineSegment
+                    End="-332.888893508249,43.2644436286059" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Data Conversion Output]"
+          TopLeft="402.444439825084,938.179992657453">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.7644436286059"
+              Start="0,0"
+              End="0,43.2644436286059">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.2644436286059" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Union All Output 12]"
           TopLeft="402.444439825084,659.886661771636">
@@ -7795,12 +7846,38 @@ ORDER BY
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Derived Column Output3]"
-          TopLeft="402.444439825084,752.651105400242">
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Union All Output 11]"
+          TopLeft="402.444439825084,474.357774514424">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.764443628606"
+              Start="0,0"
+              End="0,43.264443628606">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.264443628606" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[Union All Output 1]"
+          TopLeft="402.444439825084,288.828887257212">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7817,12 +7894,14 @@ ORDER BY
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[HashedOutput]"
-          TopLeft="402.444439825084,845.415549028848">
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData01.Paths[OLE DB Source Output]"
+          TopLeft="402.444439825084,103.3">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7839,12 +7918,65 @@ ORDER BY
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC-TRANSFORM\DFT-TransformData01\LKP-ShipDate">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC-TRANSFORM\DFT-TransformData01\LKP-OrderDate">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC-TRANSFORM\DFT-TransformData01\OLE_SRC-STG_SLE_FACT_Sale">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC-TRANSFORM\DFT-TransformData01\LKP-ProductRef">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\SEQC-TRANSFORM\DFT-TransformData01\OLE_DST-Transform_SLE_FACT_Sale01_Combine">
     <Properties>
@@ -7858,103 +7990,43 @@ ORDER BY
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\SEQC-TRANSFORM\DFT-TransformData01\OLE_SRC-STG_SLE_FACT_Sale">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\SEQC-EXTRACT\DFT-Extract_Sale\OLE_DST-Extract_SLE_FACT_Sale02_Detail">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\SEQC-EXTRACT\DFT-Extract_Sale\OLE_SRC-Extract_SaleOrderDeatil">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\SEQC-TRANSFORM\DFT-TransformData01\LKP-ProductRef">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\SEQC-TRANSFORM\DFT-TransformData01\LKP-OrderDate">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\SEQC-TRANSFORM\DFT-TransformData01\LKP-ShipDate">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\SEQC-TRANSFORM\DFT-TransformData02">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="136,42"
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData02\DER-Update"
+          TopLeft="454.055548465086,375.222214672301" />
+        <NodeLayout
           Size="276,42"
           Id="Package\SEQC-TRANSFORM\DFT-TransformData02\OLE_DST-Transform_SLE_FACT_Sale02_Action"
           TopLeft="276.222217602862,549.05554739717" />
-        <NodeLayout
-          Size="135,42"
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData02\CSPL-Action"
-          TopLeft="347.055550253226,273.722216125164" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData02\DER-Insert"
-          TopLeft="241.555551631583,373.555549222562" />
         <NodeLayout
           Size="247,42"
           Id="Package\SEQC-TRANSFORM\DFT-TransformData02\OLE_SRC-STG_SLE_FACT_Sale"
           TopLeft="125.3,79.3" />
         <NodeLayout
-          Size="136,42"
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData02\DER-Update"
-          TopLeft="454.055548465086,375.222214672301" />
+          Size="193,42"
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData02\MRJ-FindExistedRecords"
+          TopLeft="321,187" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData02\DER-Insert"
+          TopLeft="241.555551631583,373.555549222562" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData02\CSPL-Action"
+          TopLeft="347.055550253226,273.722216125164" />
+        <NodeLayout
+          Size="247,42"
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData02\OLE_SRC-DWH_SLE_FACT_Sale"
+          TopLeft="435.3,78.0555473971699" />
+        <NodeLayout
+          Size="134,42"
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData02\ALL-Actions"
+          TopLeft="351,465" />
         <EdgeLayout
           Id="Package\SEQC-TRANSFORM\DFT-TransformData02.Paths[Update]"
           TopLeft="435.722216919893,315.722216125164">
@@ -7988,6 +8060,126 @@ ORDER BY
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="26.8863728038467,29.2181546063018,32.5605859375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData02.Paths[Union All Output 1]"
+          TopLeft="416.111108801431,507">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.0555473971699"
+              Start="0,0"
+              End="0,34.5555473971699">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5555473971699" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData02.Paths[OLE DB Source Output1]"
+          TopLeft="558.8,120.05554739717">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-110.466666666667,66.9444526028301"
+              Start="0,0"
+              End="-110.466666666667,59.4444526028301">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.8364214358054" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.8364214358054"
+                    Point2="0,39.8364214358054"
+                    Point3="-4,39.8364214358054" />
+                  <mssgle:LineSegment
+                    End="-106.466666666667,39.8364214358054" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-106.466666666667,39.8364214358054"
+                    Point2="-110.466666666667,39.8364214358054"
+                    Point3="-110.466666666667,43.8364214358054" />
+                  <mssgle:LineSegment
+                    End="-110.466666666667,59.4444526028301" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData02.Paths[OLE DB Source Output]"
+          TopLeft="248.8,121.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="137.866666666667,65.7"
+              Start="0,0"
+              End="137.866666666667,58.2">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.0958890030832" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.0958890030832"
+                    Point2="0,39.0958890030832"
+                    Point3="4,39.0958890030832" />
+                  <mssgle:LineSegment
+                    End="133.866666666667,39.0958890030832" />
+                  <mssgle:CubicBezierSegment
+                    Point1="133.866666666667,39.0958890030832"
+                    Point2="137.866666666667,39.0958890030832"
+                    Point3="137.866666666667,43.0958890030832" />
+                  <mssgle:LineSegment
+                    End="137.866666666667,58.2" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData02.Paths[Merge Join Output]"
+          TopLeft="416.027775126613,229">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.722216125164"
+              Start="0,0"
+              End="0,37.222216125164">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.222216125164" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -8027,142 +8219,6 @@ ORDER BY
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="247,42"
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData02\OLE_SRC-DWH_SLE_FACT_Sale"
-          TopLeft="435.3,78.0555473971699" />
-        <NodeLayout
-          Size="193,42"
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData02\MRJ-FindExistedRecords"
-          TopLeft="321,187" />
-        <EdgeLayout
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData02.Paths[OLE DB Source Output]"
-          TopLeft="248.8,121.3">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="137.866666666667,65.7"
-              Start="0,0"
-              End="137.866666666667,58.2">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.0958890030832" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,35.0958890030832"
-                    Point2="0,39.0958890030832"
-                    Point3="4,39.0958890030832" />
-                  <mssgle:LineSegment
-                    End="133.866666666667,39.0958890030832" />
-                  <mssgle:CubicBezierSegment
-                    Point1="133.866666666667,39.0958890030832"
-                    Point2="137.866666666667,39.0958890030832"
-                    Point3="137.866666666667,43.0958890030832" />
-                  <mssgle:LineSegment
-                    End="137.866666666667,58.2" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData02.Paths[OLE DB Source Output1]"
-          TopLeft="558.8,120.05554739717">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-110.466666666667,66.9444526028301"
-              Start="0,0"
-              End="-110.466666666667,59.4444526028301">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.8364214358054" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,35.8364214358054"
-                    Point2="0,39.8364214358054"
-                    Point3="-4,39.8364214358054" />
-                  <mssgle:LineSegment
-                    End="-106.466666666667,39.8364214358054" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-106.466666666667,39.8364214358054"
-                    Point2="-110.466666666667,39.8364214358054"
-                    Point3="-110.466666666667,43.8364214358054" />
-                  <mssgle:LineSegment
-                    End="-110.466666666667,59.4444526028301" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData02.Paths[Merge Join Output]"
-          TopLeft="416.027775126613,229">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,44.722216125164"
-              Start="0,0"
-              End="0,37.222216125164">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,37.222216125164" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="134,42"
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData02\ALL-Actions"
-          TopLeft="351,465" />
-        <EdgeLayout
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData02.Paths[Derived Column Output]"
-          TopLeft="306.555551631583,415.555549222562">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="111.444448368417,49.444450777438"
-              Start="0,0"
-              End="111.444448368417,41.944450777438">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.722225388719" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.722225388719"
-                    Point2="0,24.722225388719"
-                    Point3="4,24.722225388719" />
-                  <mssgle:LineSegment
-                    End="107.444448368417,24.722225388719" />
-                  <mssgle:CubicBezierSegment
-                    Point1="107.444448368417,24.722225388719"
-                    Point2="111.444448368417,24.722225388719"
-                    Point3="111.444448368417,28.722225388719" />
-                  <mssgle:LineSegment
-                    End="111.444448368417,41.944450777438" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\SEQC-TRANSFORM\DFT-TransformData02.Paths[Derived Column Output1]"
           TopLeft="522.055548465086,417.222214672301">
@@ -8194,29 +8250,45 @@ ORDER BY
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\SEQC-TRANSFORM\DFT-TransformData02.Paths[Union All Output 1]"
-          TopLeft="416.111108801431,507">
+          Id="Package\SEQC-TRANSFORM\DFT-TransformData02.Paths[Derived Column Output]"
+          TopLeft="306.555551631583,415.555549222562">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,42.0555473971699"
+              EndConnector="111.444448368417,49.444450777438"
               Start="0,0"
-              End="0,34.5555473971699">
+              End="111.444448368417,41.944450777438">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.5555473971699" />
+                    End="0,20.722225388719" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.722225388719"
+                    Point2="0,24.722225388719"
+                    Point3="4,24.722225388719" />
+                  <mssgle:LineSegment
+                    End="107.444448368417,24.722225388719" />
+                  <mssgle:CubicBezierSegment
+                    Point1="107.444448368417,24.722225388719"
+                    Point2="111.444448368417,24.722225388719"
+                    Point3="111.444448368417,28.722225388719" />
+                  <mssgle:LineSegment
+                    End="111.444448368417,41.944450777438" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

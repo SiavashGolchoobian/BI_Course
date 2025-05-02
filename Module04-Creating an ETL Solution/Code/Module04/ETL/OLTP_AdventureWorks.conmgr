@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="OLTP_AdventureWorks"
+  DTS:DTSID="{7EEB309C-6101-494F-A7C9-6107FA0E9AA7}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=ubuntu,2019;User ID=sa;Initial Catalog=AdventureWorks2019;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=ETL;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAyGPSWrGoLUW1k1YWXQhHPwAAAAACAAAAAAAQZgAAAAEAACAAAADe0gdFGo+w3nfb9eQpQQ2tukQKJ6INFibGytlN6HnZ1gAAAAAOgAAAAAIAACAAAABDv4OXxM684AamMoON36Nxxfb1MbBksiKikRZJEFh+hoAAAABdCE2kGNGroDlBHT7p1/C791c5s98PpZiugYR19IKx/iDdGfOM0necbVIRrra37VOxrFIP7U2amnrbriJjjEZfbrGU7leIYXwpzQZam7cIcSDnLD/Rfks3+KG6Iq9/ujzWzbKvHEw2+IelY19sr1jWnPGB7YOBlfUZ4dNn9iP7WkAAAADtq0D0denK61nFIRWn/ufJOy6uSngq9pCh98ADes5enlLf1BWWDUxeLkT5f4lwPTaf540r0u3kXBIxN+Q6JhSk</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

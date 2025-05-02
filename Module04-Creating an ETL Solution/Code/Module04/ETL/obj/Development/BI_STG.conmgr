@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="BI_STG"
+  DTS:DTSID="{7908B4A3-5D54-4BC1-82C0-48A248E092D2}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=ubuntu,2019;User ID=sa;Initial Catalog=DEV_STG_CLASS;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-SLE_DIM_PRODUCT-{7908B4A3-5D54-4BC1-82C0-48A248E092D2}ubuntu,2019.DEV_STG_CLASS.sa;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAyGPSWrGoLUW1k1YWXQhHPwAAAAACAAAAAAAQZgAAAAEAACAAAACtkaumqoU9ghuGrlaWxCQdVBIWMHTKRPmRXL+AzbnAOwAAAAAOgAAAAAIAACAAAAAjQvbogwzRBFOvrRXH8xJBIPOKxz/zWUrPcD3gyhwN8IAAAACP3dVAH6t3VwejyTA/H8ODhf5L0Ze9KbtJfSjOKxURQyPonFVHYg36YVfn12EXyNIWw+8ixQTMA7V4O5ycSfHTypexzFsSlGRx8zb68RlaWm6kuZM3stL9Wy53fLUEmvKivUNcV/JOkM5PIADTrYc9/E7fC4oYNf4ZMLlfG9BTfkAAAAB6MMuryAzZ9ukn7MnTfDHos1Vj883VRkMWZHqsIbl3h9o5AzpdiF5qwaha7W+0SSb33RRqM3fy05C5qOUtV4nk</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
