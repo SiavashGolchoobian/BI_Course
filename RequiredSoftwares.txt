@@ -1,3 +1,9 @@
+Client Required Spec:
+--------------------
+	CPU:	2Core
+	RAM:	16GB
+	Disk:	30GB
+	
 Required Softwares:
 --------------------
 
@@ -8,6 +14,8 @@ AdventureWorks Data Warehouse Database:
 	https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksDW2022.bak
 	
 SQL Server Management Studio:
+	https://dl2.soft98.ir/programing/SQL.Server.Management.Studio.20.2.37.0.x64.rar?1784621703
+	OR
 	https://aka.ms/ssmsfullsetup
 	
 SQL Server Engine:
@@ -17,7 +25,7 @@ Visual Studio 2022:
 	https://edge04.82.ir.cdn.ir/programing/Microsoft.Visual.Studio.2022.v17.13.5.html
 	
 SSIS Extension for VS2022:
-	https://marketplace.visualstudio.com/_apis/public/gallery/publishers/SSIS/vsextensions/MicrosoftDataToolsIntegrationServices/1.5/vspackage
+	https://ssis.gallerycdn.vsassets.io/extensions/ssis/microsoftdatatoolsintegrationservices/1.6.2/1750663969727/Microsoft.DataTools.IntegrationServices.exe
 	
 SSAS Extension for VS2022:
 	https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects2022
@@ -28,6 +36,9 @@ SSRS Extension for VS2022:
 SSIS MultipleHash:
 	https://github.com/keif888/SSISMHash/releases/download/v1.7.6.0/MultipleHashInstallerx32.msi
 	https://github.com/keif888/SSISMHash/releases/download/v1.7.6.0/MultipleHashInstallerx64.msi
+	
+MSSQL OLEDB Driver:
+	https://go.microsoft.com/fwlink/?linkid=2364027
 	
 Microsft Excel
 	
